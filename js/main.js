@@ -15,22 +15,16 @@ $(document).ready(
 
   $(".nav i.fas").click(
     function() {
-      circleClickActive();
-    }
-  );
+      var activeImage = $(".images img.active");
+      var activeCircle = $(".nav i.active");
+      var positionCircle = $(this).index();
 
-  // $(".nav i.fas").click(
-  //   function() {
-  //     var activeImage = $(".images img.active");
-  //     var activeCircle = $(".nav i.active");
-  //     var positionCircle = $(this).index();
-  //
-  //     $(this).addClass("active");
-  //     $(this).siblings().removeClass("active");
-  //     activeImage.removeClass("active");
-  //     $(".images img").eq(positionCircle).addClass("active");
-  //   }
-  //  );
+      $(this).addClass("active");
+      $(this).siblings().removeClass("active");
+      activeImage.removeClass("active");
+      $(".images img").eq(positionCircle).addClass("active");
+    }
+   );
 
   }
 );
@@ -64,18 +58,6 @@ function prevImage() {
     activeCircle.prev().addClass("active");
   }
 }
-
-function circleClickActive() {
-  var activeImage = $(".images img.active");
-  var activeCircle = $(".nav i.active");
-  var positionCircle = $(this).index();
-
-  $(this).addClass("active");
-  $(this).siblings().removeClass("active");
-  activeImage.removeClass("active");
-  $(".images img").eq(positionCircle).addClass("active");
-}
-
 
 // function circleClickActive() {
 //   var activeImage = $(".images img");
