@@ -23,7 +23,7 @@ function nextImage() {
 
   if(activeImage.hasClass("last")) {
     $(".images img.first").addClass("active");
-    $(".nav .i.first").addClass("active");
+    $(".nav i.first").addClass("active");
   } else {
     activeImage.next().addClass("active");
     activeCircle.next().addClass("active");
@@ -38,7 +38,7 @@ function prevImage() {
 
   if (activeImage.hasClass("first")) {
     $(".images img.last").addClass("active");
-    $(".nav .i.last").addClass("active");
+    $(".nav i.last").addClass("active");
   } else {
     activeImage.prev().addClass("active");
     activeCircle.prev().addClass("active");
