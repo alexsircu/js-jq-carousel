@@ -15,16 +15,19 @@ $(document).ready(
 
   $(".nav i.fas").click(
     function() {
-      var activeImage = $(".images img.active");
-      var activeCircle = $(".nav i.active");
-      var positionCircle = $(this).index();
-
-      $(this).addClass("active");
-      $(this).siblings().removeClass("active");
-      activeImage.removeClass("active");
-      $(".images img").eq(positionCircle).addClass("active");
+      circleClickActive();
     }
-   );
+  );
+
+  $(document).keydown(
+    function() {
+      if (event.which == 37) {
+        prevImage();
+      } else if (event.which == 39) {
+        nextImage();
+      }
+    }
+  );
 
   }
 );
@@ -59,36 +62,17 @@ function prevImage() {
   }
 }
 
-// function circleClickActive() {
-//   var activeImage = $(".images img");
-//   var toActiveCircle = $(".nav i.fas");
-//   toActiveCircle.click(
-//     function() {
-//       toActiveCircle.removeClass("active");
-//       $(this).addClass("active");
-//
-//       if(toActiveCircle.hasClass("active")) {
-//         activeImage.addClass("active");
-//       }
-//     }
-//   )
-// }
+function circleClickActive() {
+  $(".nav i.fas").click(
+    function() {
+      var activeImage = $(".images img.active");
+      var activeCircle = $(".nav i.active");
+      var positionCircle = $(this).index();
 
-// function circleClickActive() {
-//   var blueCircle = $(".nav i.fas");
-//   activation(blueCircle);
-//   console.log(activation(blueCircle).indexOf(activation(blueCircle)));
-//
-//   if (blueCircle.hasClass("active")) {
-//
-//   }
-// }
-//
-// function activation(element) {
-//   element.click(
-//     function() {
-//       $(this).addClass("active");
-//       $(this).siblings().removeClass("active");
-//     }
-//   )
-// }
+      $(this).addClass("active");
+      $(this).siblings().removeClass("active");
+      activeImage.removeClass("active");
+      $(".images img").eq(positionCircle).addClass("active");
+    }
+   );
+}
